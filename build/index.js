@@ -38,4 +38,5 @@ class AIConsole {
         }
     }
 }
+exports.default = AIConsole;
 //# sourceMappingURL=index.js.map

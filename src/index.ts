@@ -53,3 +53,5 @@ class AIConsole {
     }
   }
 }
+
+export default AIConsole;
