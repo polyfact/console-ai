@@ -1,0 +1,55 @@
+{
+  "name": "ai-console",
+  "version": "0.0.1",
+  "description": "The console.ai package is an NPM module that extends the built-in console object in Node.js with a new method called console.ai(). This method allows developers to log debug messages and errors to the console in an improved format, by sending them to OpenAI's language model for translation into human-readable logs with possible solutions.With console.ai(), developers can quickly get insights into complex and hard-to-debug issues, without spending hours deciphering unreadable logs or stack traces. By using the power of OpenAI's natural language processing, this package can provide better context and guidance on how to resolve issues, saving developers time and frustration. To use this package, simply install it from the NPM registry using the npm install console.ai command. Then, in your Node.js application, require the package and call the console.ai() method instead of the regular console.log() method whenever you want to log a debug message or an error. Once the logs are sent to OpenAI, the package will return a human-readable version of the logs with possible solutions, which can be printed to the console for further analysis. This package can be especially useful for large and complex applications, where debugging can be a time-consuming and frustrating task. Overall, the console.ai package provides an easy-to-use and powerful tool for developers to improve their debugging process and gain insights into their application's behavior.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "test": "jest",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/your-package-name.git"
+  },
+  "keywords": [
+    "console",
+    "openai",
+    "debugging",
+    "logging",
+    "ai",
+    "artificial intelligence",
+    "natural language processing",
+    "nlp",
+    "debug",
+    "log",
+    "error",
+    "debugger",
+    "logger",
+    "error logger"
+  ],
+  "author": "kevin-btc",
+  "license": "CC0 1.0 Universal",
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/node": "^18.16.1",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "prettier": "^2.6.0",
+    "ts-jest": "^27.1.2",
+    "ts-node-dev": "^1.1.12",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1"
+  }
+}
