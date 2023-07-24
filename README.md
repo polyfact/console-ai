@@ -1,90 +1,90 @@
-# AI Console
+# AI-Logger
 
-AI Console is a powerful debugging tool that extends the built-in console object in Node.js, using OpenAI's GPT-4 language model to generate human-readable error messages and potential solutions. This module can help developers of all skill levels more effectively understand and resolve complex issues within their codebase.
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Example](#example)
-- [Scripts](#scripts)
-- [Dependencies](#dependencies)
+AI-Logger is a Node.js module that enhances console functionality with a new method, `console.ai()`. It utilizes OpenAI's language models to translate error logs into a more readable format, providing potential causes and solutions. By replacing the standard `console.log()` with `console.ai()`, developers can gain insights into complex issues and expedite the debugging process. The original error message is always logged, ensuring data integrity. As such, AI-Logger is a potent tool that not only enhances debugging, but also offers insights into application behavior, thereby improving development efficiency.
 
 ## Installation
 
-To install the `ai-console` package, run the following command:
+Use the package manager [npm](https://www.npmjs.com/) to install AI-Logger.
 
+```bash
+npm install ai-logger
 ```
-npm install ai-console
+
+## Getting Your PolyFact Token
+
+AI-Logger uses the powerful package called PolyFact to generate AI responses. To use it, you need to get a PolyFact token.
+
+Follow these steps to get your PolyFact token:
+
+1. Go to [app.polyfact.com](https://app.polyfact.com).
+2. Connect with GitHub.
+3. Copy the token.
+
+Then, you need to export the PolyFact token in your environment:
+
+```bash
+export POLYFACT_TOKEN=<your_polyfact_token>
 ```
 
 ## Usage
 
-After installing the `ai-console` package, you can import it in your Node.js application like this:
+First, import and initialize the module:
 
-```javascript
-import AIConsole from "ai-console";
+```typescript
+import { extendConsole } from "ai-logger";
+
+extendConsole();
 ```
 
-To create an instance of AIConsole, you need to provide an `OpenAIConfig` object, which includes your OpenAI API key and endpoint:
+Now, you can replace your usual `console.log()` or `console.error()` calls with `console.ai()`:
 
-```javascript
-const openAIConfig = {
-  apiKey: process.env.OPENAI_API_KEY,
-  apiEndpoint: "https://api.openai.com/v1/chat/completions",
-};
-
-const Console = new AIConsole(openAIConfig);
-```
-
-Now, you can use the `Console.ai()` method instead of `console.log()` or `console.error()` to log error messages and receive human-readable logs with possible solutions.
-
-## Configuration
-
-The `OpenAIConfig` object allows you to configure the following properties:
-
-- `apiKey` (string): Your OpenAI API key.
-- `apiEndpoint` (string): The OpenAI API endpoint (default: "https://api.openai.com/v1/chat/completions").
-- `defaultHeaders` (object): An optional object containing custom headers for the API requests.
-- `timeout` (number): The request timeout in milliseconds.
-
-## Example
-
-Here's an example of how to use the AIConsole:
-
-```javascript
-import AIConsole from "ai-console";
-
-const openAIConfig = {
-  apiKey: process.env.OPENAI_API_KEY,
-  apiEndpoint: "https://api.openai.com/v1/chat/completions",
-};
-
-const Console = new AIConsole(openAIConfig);
-
-// ... your code ...
-
+```typescript
 try {
-  // ... some code that might throw an error ...
-} catch (error) {
-  Console.ai(error);
+  // code that might throw an error
+} catch (e) {
+  console.ai(e);
 }
 ```
 
-## Dependencies
+## Features
 
-- `dotenv` (v16.0.3): Load environment variables from a `.env` file.
-- `openai` (v3.2.1): Official OpenAI API client for JavaScript.
+- Converts error messages into a more understandable format.
+- Outlines potential causes of an error.
+- Suggests possible solutions.
+- Ensures original error messages are logged.
 
-## License
+## Options
 
-This project is licensed under the CC0 1.0 Universal License. For more information, see the [LICENSE](./LICENSE) file.
+The `extendConsole()` function can take an `AILoggerOptions` object:
+
+```typescript
+extendConsole({
+  prompt?: string;
+  sections?: ErrorSection[];
+  showOriginalError?: boolean;
+  showResultWithJsonFormat?: boolean;
+});
+```
+
+Where:
+
+- `prompt` is a string that instructs the OpenAI model how to format the output.
+- `sections` is an array of `ErrorSection` enums. It determines the sections of the output (default is all sections).
+- `showOriginalError` is a boolean that indicates whether to log the original error (default is `true`).
+- `showResultWithJsonFormat` is a boolean that specifies whether to show the formatted error message in JSON format (default is `false`).
 
 ## Contributing
 
-We welcome contributions to the `ai-console` project. If you'd like to contribute, please fork the repository, make your changes, and submit a pull request.
+Please make sure to update tests as appropriate.
+
+## License
+
+[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+
+## Contact
+
+If you want to contact me you can reach me at <kevin@polyfact.com>.
 
 ## Author
 
-This project was created by kevin-btc. If you have any questions or need assistance, please feel free to reach out on GitHub.
+[kevin-btc](https://github.com/kevin-btc)
