@@ -1,13 +1,12 @@
 {
   "name": "ai-logger",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "AI-Logger is a Node.js module that boosts console functionality with a new method, console.ai(). It harnesses OpenAI's language models to convert error logs into readable formats, detailing potential causes and solutions. By replacing the standard console.log() with console.ai(), developers gain insights into complex issues and streamline debugging. The original error message is always logged, ensuring data integrity. Thus, AI-Logger is a powerful tool that enhances debugging, offering insights into application behavior, and improving development efficiency.",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
     "build": "tsc -p ./",
-    "compile": "tsc -watch -p ./",
-    "test": "mocha test/**/*.ts"
+    "compile": "tsc -watch -p ./"
   },
   "repository": {
     "type": "git",
@@ -32,13 +31,8 @@
   "author": "kevin-btc",
   "license": "CC0 1.0 Universal",
   "devDependencies": {
-    "@types/chai": "^4.3.5",
-    "@types/jest": "^27.4.0",
-    "@types/mocha": "^10.0.1",
     "@types/node": "^18.16.1",
-    "@types/sinon": "^10.0.15",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
-    "chai": "^4.3.7",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
@@ -46,11 +40,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
-    "jest": "^27.5.1",
-    "mocha": "^10.2.0",
     "prettier": "^2.6.0",
-    "sinon": "^15.2.0",
-    "ts-jest": "^27.1.2",
     "ts-node-dev": "^1.1.12",
     "typescript": "*"
   },
@@ -58,18 +48,9 @@
     "build"
   ],
   "dependencies": {
-    "ai-logger": "^0.0.3",
+    "ai-logger": "^0.0.5",
     "dotenv": "^16.0.3",
     "openai": "^3.2.1",
     "polyfact": "^0.1.9"
-  },
-  "mocha": {
-    "require": "ts-node/register",
-    "extension": [
-      "ts"
-    ],
-    "spec": [
-      "src/**/*.spec.ts"
-    ]
   }
 }
