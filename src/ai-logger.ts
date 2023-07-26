@@ -1,4 +1,5 @@
 import { generateWithType, t } from "polyfact";
+import chalk from "chalk";
 
 import { TypeOf } from "io-ts";
 
@@ -14,6 +15,14 @@ export enum ErrorSection {
   Summary = "summary",
   Causes = "causes",
   Solutions = "solutions",
+  // Details = "details",
+  // Logs = "logs",
+  // Recommendations = "recommendations",
+  // RelatedErrors = "relatedErrors",
+  // Trace = "trace",
+  // UserImpact = "userImpact",
+  // SystemStatus = "systemStatus",
+  // Warning = "warning",
 }
 
 interface AILoggerOptions {
@@ -62,31 +71,40 @@ const ResponseError = ErrorCodec;
 export type TResponseError = TypeOf<typeof ResponseError>;
 
 function formatError(json: TResponseError, sections: ErrorSection[] = []) {
-  const horizontalLine =
-    "-----------------------------------------------------------";
+  const horizontalLine = chalk.gray(
+    "-----------------------------------------------------------\n\n"
+  );
 
   let formattedError = `\n${horizontalLine}\n`;
 
   sections.forEach((section) => {
     switch (section) {
       case ErrorSection.Error:
-        formattedError += `Error:\n  ${json.error}\n\n`;
+        formattedError += `${chalk.red("💥 Error:")} \n   ${chalk.bold(
+          json.error
+        )}\n\n`;
         break;
       case ErrorSection.Location:
-        formattedError += `Location:\n  File: ${json.location.file}\n  Line: ${json.location.line}\n\n`;
+        formattedError += `${chalk.blue("📍 Location:")}\n   ${chalk.cyan(
+          "File:"
+        )} ${json.location.file}\n   ${chalk.cyan("Line:")} ${
+          json.location.line
+        }\n\n`;
         break;
       case ErrorSection.Summary:
-        formattedError += `Summary:\n  ${json.summary}\n\n`;
+        formattedError += `${chalk.green("📝 Summary:")}\n   ${
+          json.summary
+        }\n\n`;
         break;
       case ErrorSection.Causes:
-        formattedError += `Probable Causes:\n  - ${json.causes.join(
-          "\n  - "
-        )}\n\n`;
+        formattedError += `${chalk.yellow(
+          "💡 Probable Causes:"
+        )}\n   - ${json.causes.join("\n   - ")}\n\n`;
         break;
       case ErrorSection.Solutions:
-        formattedError += `Possible Solutions:\n  - ${json.solutions.join(
-          "\n  - "
-        )}\n\n`;
+        formattedError += `${chalk.magenta(
+          "🔧 Possible Solutions:"
+        )}\n   - ${json.solutions.join("\n   - ")}\n\n`;
         break;
     }
   });
@@ -159,7 +177,7 @@ export function extendConsole(options: AILoggerOptions = {}) {
       ErrorSection.Causes,
       ErrorSection.Solutions,
     ],
-    showOriginalError = true,
+    showOriginalError = false,
     showResultWithJsonFormat = false,
   } = options;
 

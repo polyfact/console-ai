@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { extendConsole, ErrorSection } from "ai-logger";
+import { extendConsole, ErrorSection } from "../src";
 
 // Export PolyFact token in your environment variables
 // Go to https://app.polyfact.com/ to get your token
