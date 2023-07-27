@@ -1,7 +1,7 @@
 {
-  "name": "ai-logger",
+  "name": "console.ia",
   "version": "1.0.0",
-  "description": "AI-Logger is a Node.js module that boosts console functionality with a new method, console.ai(). It harnesses OpenAI's language models to convert error logs into readable formats, detailing potential causes and solutions. By replacing the standard console.log() with console.ai(), developers gain insights into complex issues and streamline debugging. The original error message is always logged, ensuring data integrity. Thus, AI-Logger is a powerful tool that enhances debugging, offering insights into application behavior, and improving development efficiency.",
+  "description": "Console.ia is a Node.js module that boosts console functionality with a new method, console.ai(). It harnesses OpenAI's language models to convert error logs into readable formats, detailing potential causes and solutions. By replacing the standard console.log() with console.ai(), developers gain insights into complex issues and streamline debugging. The original error message is always logged, ensuring data integrity. Thus, Console.ia is a powerful tool that enhances debugging, offering insights into application behavior, and improving development efficiency.",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
@@ -48,10 +48,9 @@
     "build"
   ],
   "dependencies": {
-    "ai-logger": "^0.0.5",
     "chalk": "4.1.2",
     "dotenv": "^16.0.3",
     "openai": "^3.2.1",
-    "polyfact": "^0.1.9"
+    "polyfact": "0.1.12"
   }
 }
