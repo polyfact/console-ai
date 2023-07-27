@@ -1,22 +1,22 @@
-# Console.ia
+# Console-ai
 
-Console.ia is a Node.js module that enhances console functionality with a new method, `console.ai()`. It utilizes OpenAI's language models to translate error logs into a more readable format, providing potential causes and solutions. By replacing the standard `console.log()` with `console.ai()`, developers can gain insights into complex issues and expedite the debugging process. The original error message can be logged, if you want ensuring data integrity. As such, Console.ia is a potent tool that not only enhances debugging, but also offers insights into application behavior, thereby improving development efficiency.
+Console-ai is a Node.js module that enhances console functionality with a new method, `console.ai()`. It utilizes OpenAI's language models to translate error logs into a more readable format, providing potential causes and solutions. By replacing the standard `console.log()` with `console.ai()`, developers can gain insights into complex issues and expedite the debugging process. The original error message can be logged, if you want ensuring data integrity. As such, Console-ai is a potent tool that not only enhances debugging, but also offers insights into application behavior, thereby improving development efficiency.
 
-![console.ia](https://n42-nft.s3.eu-west-3.amazonaws.com/logger-ai.png)
+![console-ai](https://n42-nft.s3.eu-west-3.amazonaws.com/logger-ai.png)
 
 ## Installation
 
-Use the package manager [npm](https://www.npmjs.com/) to install Console.ia.
+Use the package manager [npm](https://www.npmjs.com/) to install Console-ai.
 
 ```bash
 
-npm  install  console.ia
+npm  install  console-ai
 
 ```
 
 ## Getting Your PolyFact Token
 
-Console.ia uses the powerful package called PolyFact to generate AI responses. To use it, you need to get a PolyFact token.
+Console-ai uses the powerful package called PolyFact to generate AI responses. To use it, you need to get a PolyFact token.
 
 Follow these steps to get your PolyFact token:
 
@@ -39,7 +39,7 @@ export  POLYFACT_TOKEN=<your_polyfact_token>
 First, import and initialize the module:
 
 ```typescript
-import { extendConsole } from "console.ia";
+import { extendConsole } from "console-ai";
 
 extendConsole();
 ```
